@@ -1,0 +1,14 @@
+{
+  "name": "giphy",
+  "version": "1.0.0",
+  "description": "giphy search project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marie Eriksson <eriksson.km@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "query-string": "^4.2.3"
+  }
+}
