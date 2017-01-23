@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "description": "giphy search project",
   "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:styles": "node-sass --source-map true src/styles/giphy.scss --output public/assets/styles",
+    "watch:styles": "node-sass --watch src/styles/giphy.scss --output public/assets/styles",
+    "browser": "browser-sync start --server ./public --files public/**/*",
+    "watch": "npm-run-all --parallel browser watch:*"
   },
   "author": "Marie Eriksson <eriksson.km@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "browser-sync": "^2.18.6",
+    "node-sass": "^4.3.0",
+    "npm-run-all": "^4.0.1",
     "query-string": "^4.2.3"
   }
 }
