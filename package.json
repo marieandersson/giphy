@@ -5,17 +5,25 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build:styles": "node-sass --source-map true src/styles/giphy.scss --output public/assets/styles",
-    "watch:styles": "node-sass --watch src/styles/giphy.scss --output public/assets/styles",
-    "browser": "browser-sync start --server ./public --files public/**/*",
-    "watch": "npm-run-all --parallel browser watch:*"
+    "build:styles": "node-sass src/styles/giphy.scss | cleancss --output public/assets/styles",
+    "watch:styles": "node-sass --source-map true --watch src/styles/giphy.scss --output public/assets/styles",
+    "browser": "browser-sync start --server public --files public/**/*",
+    "watch": "npm-run-all --parallel browser watch:*",
+    "build:scripts": "rollup --config",
+    "watch:scripts": "rollup --config --watch"
   },
   "author": "Marie Eriksson <eriksson.km@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "browser-sync": "^2.18.6",
+    "clean-css": "^4.0.3",
     "node-sass": "^4.3.0",
     "npm-run-all": "^4.0.1",
-    "query-string": "^4.2.3"
+    "query-string": "^4.2.3",
+    "sanitize.css": "^4.1.0"
+  },
+  "devDependencies": {
+    "rollup": "^0.41.4",
+    "rollup-watch": "^3.2.2"
   }
 }
