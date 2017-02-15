@@ -10,16 +10,18 @@ export default class Giphy {
   *
   * @return {Promise}
   */
-  search (q, onResponse) {
-    const query = queryString.stringify({q});
-		fetch(`http://api.giphy.com/v1/gifs/search?${query}&api_key=${GIPHY_API_KEY}`)
+  search (query) {
+		let searchQuery = {
+			q: query,
+			limit: 100
+		};
+    const q = queryString.stringify(searchQuery);
+		return fetch(`http://api.giphy.com/v1/gifs/search?${q}&api_key=${GIPHY_API_KEY}`)
       .then(function (response) {
         if (!response.ok) {
           console.log('something went wrong. statuscode: ' + response.status);
         } else {
-          response.json().then(function (searchData) {
-						onResponse(searchData);
-          });
+           return response.json();
         }
       })
       .catch(function (err) {

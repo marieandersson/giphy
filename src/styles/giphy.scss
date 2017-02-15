@@ -45,6 +45,16 @@ header {
 		}
 	}
 }
+.gallery {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-items: center;
+	img {
+		margin: 1em 0;
+	}
+}
 footer {
 	p {
 		color: gray;
