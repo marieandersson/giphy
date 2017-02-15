@@ -1,4 +1,5 @@
 'use strict';
+import Giphy from './utils/Giphy.js';
 
 export default class App {
   constructor () {
@@ -9,6 +10,16 @@ export default class App {
   onSubmit (event) {
     event.preventDefault();
     this.searchInput = document.querySelector('.search__input').value;
-    console.log(this.searchInput);
+		let giphy = new Giphy();
+		let giphySearch = giphy.search(this.searchInput, this.onSubmitResponse.bind(this));
   }
+
+	onSubmitResponse (data) {
+		console.log(data);
+
+	}
 }
+
+// let gifArray = [];
+// giphy.forEach(gif => gifArray.push(gif.images.fixed_width.url));
+// console.log(gifArray);

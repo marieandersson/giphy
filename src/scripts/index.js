@@ -1,5 +1,4 @@
 import App from './App.js';
-import Giphy from './utils/Giphy.js';
 
 let LOADED = false;
 
@@ -17,7 +16,6 @@ function bootstrap () {
   LOADED = true;
 
   window.app = new App();
-	let giphy = new Giphy();
 
   // When the application is loaded we remove the event listeners.
   document.removeEventListener('DOMContentLoaded', bootstrap);
